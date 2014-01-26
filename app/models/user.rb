@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   before_save{ self.email = email.downcase} # this makes the email lowercase prior to saving
   validates :name, presence: true, length: { maximum: 50}
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = [a-z\d\-.]+\.[a-z]+\z/i
+                      [a-z\d\-]+s(\.[a-z]+)*\.[a-z]+\z/i
+
+                      foo@bar..com
   validates :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX}, 
                     uniqueness: {case_sensitive: false}
