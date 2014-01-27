@@ -41,6 +41,25 @@ describe "Static pages" do
 
     it {should have_content('Contact')}
     it {should have_title(full_title('Contact'))}
-
   end
+
+    
+
+  # describe "signup page" do
+  #   before {visit sign_up_path}
+
+    # let(:sumbit) {"Create my account"}
+
+    
+
+    
+
+  #     it "should create a user" do
+  #       expect{ click_button submit }.to change(User, :count).by(1)
+      
+
+  #     end
+  #   end
+  # end
 end
+
