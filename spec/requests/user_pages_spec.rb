@@ -15,6 +15,23 @@ describe "User Pages" do
       end
     end
 
+    describe "after submission" do
+      before { click_button submit}
+
+      it { should have_title('Sign up')}
+      it { should have_content('error')}
+
+    end
+
+    describe "after saving the user" do
+      before { click_button submit}
+      let(:user) {User.find_by(email: 'user@example.com')}
+
+      it {should have_title(user.name)}
+      it {should have_selector('div.alert.alert-success', text: 'Welcome')}
+      end
+      
+
     describe "with valid information" do
       before do
         fill_in "Name",         with: "Example User"
@@ -40,7 +57,8 @@ describe "User Pages" do
   it {should have_title(user.name)}  
 
   end
-  
+
+
 end
 
 
